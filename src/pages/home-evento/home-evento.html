@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="padrao">
+
+    <ion-buttons right>
+      <button ion-button icon-only padding-horizontal>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card  *ngFor="let evento of eventos | async"  (click)="navegarProgramacao()">
+    <ion-card-content>
+     <img mat-card-image src={{evento.imagem}}>
+    </ion-card-content>
+    <ion-card-content>
+      {{evento.nomeEvento}}
+    </ion-card-content>
+    <ion-card-content>
+      {{evento.descricaoEvento}}
+    </ion-card-content>
+  </ion-card>
+  <ion-content>
+   
