@@ -14,9 +14,10 @@ import { MyApp } from './app.component';
 
 import { OpenPage } from '../pages/open/open';
 
-import { firebaseConfig } from './credentials';
+import { credentials } from './credentials';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { FirestoreProgramacaoProvider } from '../providers/firestore-programacao/firestore-programacao';
+
 
 
 
@@ -30,7 +31,7 @@ import { FirestoreProgramacaoProvider } from '../providers/firestore-programacao
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(credentials.firebaseConfig),
     AngularFirestoreModule,
 
 

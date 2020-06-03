@@ -16,7 +16,7 @@
   <ion-slides #slider>
     <ion-slide class="slide">
       <ion-card  *ngFor="let programacao of programacao | async" >
-        <ion-card-header>{{ programacao.dataInicio }} {{ programacao.dataFinal }}</ion-card-header>
+        <ion-card-header>{{ programacao.dataInicio }} - {{ programacao.dataFinal }}</ion-card-header>
         <ion-card-content>
           <p><b>Palestrante:</b>{{programacao.nomePalestrante}}</p>
           <p><b>Tipo:</b>{{ programacao.Tipo }}</p>

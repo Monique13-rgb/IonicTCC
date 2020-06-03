@@ -15,13 +15,12 @@ import { FirestoreProgramacaoProvider } from '../../providers/firestore-programa
 export class ProgramacaoEventoPage {
   idEvento: string;
   public evento: Evento;
-  public prog: Observable<Programacao[]>;
+  public programacao: Observable<Programacao[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public firestoreprogramacaoProvider: FirestoreProgramacaoProvider) {
-    this.evento = this.navParams.get('eventos');
-  }
+    public firestoreprogramacaoProvider: FirestoreProgramacaoProvider) {}
   ionViewDidLoad() {
-    this.prog = this.firestoreprogramacaoProvider.getprogramacao().valueChanges();
+    this.idEvento = this.navParams.get('id');
+    this.programacao = this.firestoreprogramacaoProvider.getAll().valueChanges();
   }
 
 
