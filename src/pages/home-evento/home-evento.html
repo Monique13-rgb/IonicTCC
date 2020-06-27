@@ -1,24 +1,26 @@
 <ion-header>
   <ion-toolbar color="padrao">
-
-    <ion-buttons right>
-      <button ion-button icon-only padding-horizontal>
-        <ion-icon name="search"></ion-icon>
+    <button ion-button menuToggle (click)="voltar()">
+      <ion-icon name="arrow-back"></ion-icon>
       </button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 <ion-content>
-  <ion-card  *ngFor="let evento of eventos | async"  (click)="navegarProgramacao()">
+  <ion-card *ngFor="let evento of eventos | async">
     <ion-card-content>
      <img mat-card-image src={{evento.imagem}}>
     </ion-card-content>
-    <ion-card-content>
-      {{evento.nomeEvento}}
+    <ion-card-content class="agua">
+     <h5 class="card-title">{{evento.nomeEvento}}</h5>
     </ion-card-content>
-    <ion-card-content>
+    <ion-card-content class="card-body">
       {{evento.descricaoEvento}}
     </ion-card-content>
-  </ion-card>
-  <ion-content>
+  <button ion-button round class="potato" (click)="irParaPalestrantes(evento)"> Palestrantes </button>
+  <button class="potato2" round size="small" ion-button (click)="navegarProgramacao(evento)" >Programação </button>
+</ion-card> 
+</ion-content>
+
    

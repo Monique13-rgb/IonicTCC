@@ -3,32 +3,25 @@
     <button ion-button menuToggle (click)="voltarHome()">
     <ion-icon name="arrow-back"></ion-icon>
     </button>
-
-    <ion-buttons right>
-      <button ion-button icon-only padding-horizontal>
-        <ion-icon name="search"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-slides #slider>
     <ion-slide class="slide">
-      <ion-card  *ngFor="let programacao of programacao | async" >
-        <ion-card-header>{{ programacao.dataInicio }} - {{ programacao.dataFinal }}</ion-card-header>
+      <ion-card  *ngFor="let programacao of programacoes | async" >
+        <ion-card-header>{{ programacao.dataInicio}} - {{ programacao.horaInicio }}</ion-card-header>
         <ion-card-content>
           <p><b>Palestrante:</b>{{programacao.nomePalestrante}}</p>
-          <p><b>Tipo:</b>{{ programacao.Tipo }}</p>
-          <p><b>Vagas:</b> {{ programacao.Vagas }} </p>
-          <p><b>Valor:</b> {{ programacao.Valor }} </p>
-          <p><b>Local:</b> {{ programacao.Local }} </p>
-          <ion-card-header>{{ programacao.horaInicio }} {{ programacao.horaFinal }}</ion-card-header>
+          <p><b>Tipo:</b>{{ programacao.tipo }}</p>
+          <p><b>Vagas:</b> {{ programacao.vagas }} </p>
+          <p><b>Valor:</b> {{ programacao.valor }} </p>
+          <p><b>Local:</b> {{ programacao.local }} </p>
+          <ion-card-header>{{ programacao.dataFinal}} {{ programacao.horaFinal }}</ion-card-header>
         </ion-card-content>
       </ion-card>
     </ion-slide>
     </ion-slides>
-    <button ion-button (click)="goToPalestrantes()"> Palestrantes </button> 
   </ion-content>
  
   

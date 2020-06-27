@@ -3,6 +3,7 @@ import { NavController, IonicPage, NavParams } from 'ionic-angular';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Evento } from '../../app/models/evento.iterface';
 import { Observable } from 'rxjs/Observable';
+import { OpenPage } from '../open/open';
 
 @IonicPage()
 @Component({
@@ -18,11 +19,16 @@ export class HomeEventoPage {
 
   ionViewDidLoad() {
     this.eventos = this.firestoreProvider.getEventos().valueChanges();
+    console.log(this.eventos);
   }
-
-
   navegarProgramacao(evento: Evento): void {
-    this.navCtrl.push("ProgramacaoEventoPage",{evento: evento});
+    this.navCtrl.push("ProgramacaoEventoPage",{idEvento: evento.id});
+    
   }
-
+  irParaPalestrantes(evento: Evento): void {
+    this.navCtrl.push("PalestrantesPage",{idEvento: evento.id});
+    }
+  voltar(){
+    this.navCtrl.push(OpenPage);
+  }
 }

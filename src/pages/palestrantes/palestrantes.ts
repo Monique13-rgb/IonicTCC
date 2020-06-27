@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { OpenPage } from '../open/open';
+import { Evento } from '../../app/models/evento.iterface';
+import { Palestrante } from '../../app/models/palestrante.iterface';
+import { Observable } from 'rxjs';
+import { FirestorePalestrantesProvider } from '../../providers/firestore-palestrantes/firestore-palestrantes';
+import { HomeEventoPage } from '../home-evento/home-evento';
 
 @IonicPage()
 @Component({
@@ -8,17 +12,20 @@ import { OpenPage } from '../open/open';
   templateUrl: 'palestrantes.html',
 })
 export class PalestrantesPage {
+  idEvento: string;
+  public evento: Evento;
+  public palestrantes: Observable<Palestrante[]>;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public firestorepalestrantesProvider: FirestorePalestrantesProvider) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
   
-  }
+  ionViewDidLoad() {
+    this.idEvento = this.navParams.get('idEvento');
+    console.log(this.idEvento);
+    this.palestrantes = this.firestorepalestrantesProvider.getAll(this.idEvento).valueChanges();
+    console.log(this.idEvento);
+  } 
   voltar(){
-    this.navCtrl.push(OpenPage);
-  }
-  gotoPotato(){
-    this.navCtrl.push("ProgramacaoEventoPage");
+    this.navCtrl.push(HomeEventoPage);
   }
 }

@@ -17,6 +17,7 @@ import { OpenPage } from '../pages/open/open';
 import { credentials } from './credentials';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { FirestoreProgramacaoProvider } from '../providers/firestore-programacao/firestore-programacao';
+import { FirestorePalestrantesProvider } from '../providers/firestore-palestrantes/firestore-palestrantes';
 
 
 
@@ -47,7 +48,8 @@ import { FirestoreProgramacaoProvider } from '../providers/firestore-programacao
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirestoreProvider,
-    FirestoreProgramacaoProvider
+    FirestoreProgramacaoProvider,
+    FirestorePalestrantesProvider
   ]
 })
 export class AppModule {}
