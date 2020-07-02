@@ -1,10 +1,10 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
-import { Evento } from '../../app/models/evento.iterface';
-import { Programacao } from '../../app/models/programacao.interface';
-import { Observable } from 'rxjs/Observable';
-import { FirestoreProgramacaoProvider } from '../../providers/firestore-programacao/firestore-programacao';
+import { Programacao } from '../../models/programacao.model';
 
+import { FirestoreProgramacaoProvider } from '../../providers/firestore-programacao/firestore-programacao';
+import { Evento } from '../../models/evento.model';
+import { Observable } from 'rxjs';
 @IonicPage()
 @Component({
   selector: 'page-programacao-evento',
@@ -13,17 +13,25 @@ import { FirestoreProgramacaoProvider } from '../../providers/firestore-programa
 export class ProgramacaoEventoPage {
   idEvento: any;
   public evento: Evento;
-  public programacoes: Observable<Programacao[]>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    public firestoreprogramacaoProvider: FirestoreProgramacaoProvider) {}
+  public programacoes:Observable<Programacao[]>;
+  public dataInicio: string = new Date().toDateString();
+  public dataFinal: string = new Date().toDateString();
+
+  
+
+  constructor(public navCtrl: NavController, 
+  public navParams: NavParams,
+  public firestoreprogramacaoProvider: FirestoreProgramacaoProvider) {
+  }
 
   
   ionViewDidLoad() {
     this.idEvento = this.navParams.get('idEvento');
-    this.programacoes = this.firestoreprogramacaoProvider.getprogramacao(this.idEvento).valueChanges();
     console.log(this.idEvento);
-  }
- 
+    this.programacoes = this.firestoreprogramacaoProvider.getAll(this.idEvento).valueChanges();
+    console.log(this.idEvento);
+    }
+
   voltarHome() {
     this.navCtrl.push("HomeEventoPage");
   }

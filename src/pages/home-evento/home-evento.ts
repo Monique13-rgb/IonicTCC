@@ -19,7 +19,6 @@ export class HomeEventoPage {
 
   ionViewDidLoad() {
     this.eventos = this.firestoreProvider.getEventos().valueChanges();
-    console.log(this.eventos);
   }
   navegarProgramacao(evento: Evento): void {
     this.navCtrl.push("ProgramacaoEventoPage",{idEvento: evento.id});
