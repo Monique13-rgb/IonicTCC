@@ -18,6 +18,7 @@ import { credentials } from './credentials';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { FirestoreProgramacaoProvider } from '../providers/firestore-programacao/firestore-programacao';
 import { FirestorePalestrantesProvider } from '../providers/firestore-palestrantes/firestore-palestrantes';
+import {RouterModule} from '@Angular/router';
 
 
 
@@ -34,6 +35,7 @@ import { FirestorePalestrantesProvider } from '../providers/firestore-palestrant
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(credentials.firebaseConfig),
     AngularFirestoreModule,
+    RouterModule,
 
 
 

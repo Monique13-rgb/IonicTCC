@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
-import { Programacao } from '../../models/programacao.model';
-
 import { FirestoreProgramacaoProvider } from '../../providers/firestore-programacao/firestore-programacao';
-import { Evento } from '../../models/evento.model';
 import { Observable } from 'rxjs';
+import { Evento } from '../../app/models/evento.iterface';
+import { Programacao } from '../../models/programacao.interface';
 @IonicPage()
 @Component({
   selector: 'page-programacao-evento',
   templateUrl: 'programacao-evento.html',
 })
 export class ProgramacaoEventoPage {
-  idEvento: any;
-  public evento: Evento;
-  public programacoes:Observable<Programacao[]>;
+  prog: Observable<Programacao[]>;
+  idEvento: string;
+  evento: Evento;
   public dataInicio: string = new Date().toDateString();
   public dataFinal: string = new Date().toDateString();
 
@@ -28,8 +27,7 @@ export class ProgramacaoEventoPage {
   ionViewDidLoad() {
     this.idEvento = this.navParams.get('idEvento');
     console.log(this.idEvento);
-    this.programacoes = this.firestoreprogramacaoProvider.getAll(this.idEvento).valueChanges();
-    console.log(this.idEvento);
+    this.prog = this.firestoreprogramacaoProvider.getAll(this.idEvento).valueChanges();
     }
 
   voltarHome() {

@@ -1,4 +1,4 @@
-export class Palestrante {
+export interface Palestrante {
     idEvento: string;
     id: string;
     nome: string;

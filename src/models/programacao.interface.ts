@@ -1,6 +1,6 @@
 import { Time } from "@angular/common";
 
-export class Programacao {
+export interface Programacao {
     idEvento: string;
     id: string;
     nomePalestrante: string;

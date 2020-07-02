@@ -21,11 +21,11 @@ export class HomeEventoPage {
     this.eventos = this.firestoreProvider.getEventos().valueChanges();
   }
   navegarProgramacao(evento: Evento): void {
-    this.navCtrl.push("ProgramacaoEventoPage",{idEvento: evento.id});
+    this.navCtrl.push("ProgramacaoEventoPage",evento.id);
     
   }
   irParaPalestrantes(evento: Evento): void {
-    this.navCtrl.push("PalestrantesPage",{idEvento: evento.id});
+    this.navCtrl.push("PalestrantesPage",evento.id);
     }
   voltar(){
     this.navCtrl.push(OpenPage);
