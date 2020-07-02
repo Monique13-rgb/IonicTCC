@@ -9,6 +9,8 @@ export class FirestoreProgramacaoProvider {
   constructor(public firestore: AngularFirestore) {
   }
   getAll(id: string): AngularFirestoreCollection<Programacao> {
-   return this.firestore.collection<Programacao>("programação", ref => ref.where('idEvento', '==', id));
+    console.log(id);
+   return this.firestore.collection<Programacao>("programação", 
+   ref => ref.where('idEvento', '==', id));
   }
 }
