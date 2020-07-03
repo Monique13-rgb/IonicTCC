@@ -9,7 +9,7 @@
 <ion-content>
   <ion-slides #slider>
     <ion-slide class="slide">
-      <ion-card *ngFor="let programacao of programacoes | async" >
+      <ion-card *ngFor="let programacao of prog | async" >
         <ion-card-header>{{programacao.dataInicio.toDate() | date:'dd/MM/yyyy'}} - {{ programacao.horaInicio }}</ion-card-header>
         <ion-card-content>
           <p><b>Palestrante:</b>{{programacao.nomePalestrante}}</p>
@@ -17,7 +17,7 @@
           <p><b>Vagas:</b> {{ programacao.vagas }} </p>
           <p><b>Valor:</b> {{ programacao.valor }} </p>
           <p><b>Local:</b> {{ programacao.local }} </p>
-          <ion-card-header>{{ programacao.dataFinal.toDate() | date:'dd/MM/yyyy'}} {{ programacao.horaFinal }}</ion-card-header>
+          <ion-card-header>{{programacao.dataFinal.toDate() | date:'dd/MM/yyyy'}} - {{ programacao.horaFinal }}</ion-card-header>
         </ion-card-content>
       </ion-card>
     </ion-slide>

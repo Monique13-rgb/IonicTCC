@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Evento } from '../../app/models/evento.iterface';
-import { Palestrante } from '../../app/models/palestrante.iterface';
+
 import { Observable } from 'rxjs';
 import { FirestorePalestrantesProvider } from '../../providers/firestore-palestrantes/firestore-palestrantes';
 import { HomeEventoPage } from '../home-evento/home-evento';
+import { Evento } from '../../models/evento.interface';
+import { Palestrante } from '../../models/palestrante.interface';
 
 @IonicPage()
 @Component({

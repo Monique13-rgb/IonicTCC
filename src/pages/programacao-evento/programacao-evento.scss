@@ -44,14 +44,17 @@ page-programacao-evento {
     display: block;
   }
   ion-card-header {
-    height: 7vh;
+    height: 8vh;
     background-color: #06174e;
     color: white !important;
-    font-size: 14pt !important;
+    font-size: 15pt !important;
+    text-align: center;
+  
   }
+  
   ion-card-content {
     text-align: justify;
     p {
-      font-size: 12pt !important;
+      font-size: 13pt !important;
     }
   }

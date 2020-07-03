@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Palestrante } from '../../app/models/palestrante.iterface';
+import { Palestrante } from '../../models/palestrante.interface';
+
 
 
 @Injectable()
