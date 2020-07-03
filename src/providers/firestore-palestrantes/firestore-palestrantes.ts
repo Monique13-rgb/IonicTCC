@@ -9,7 +9,7 @@ export class FirestorePalestrantesProvider {
 
   constructor(public firestore: AngularFirestore) {
   }
-  getAll(id: string):AngularFirestoreCollection<Palestrante> {
-    return this.firestore.collection('palestrantes', ref => ref.where('idEvento', '==', id));
+  getAll():AngularFirestoreCollection<Palestrante> {
+    return this.firestore.collection('palestrantes');
     }
 }

@@ -9,6 +9,7 @@ export class FirestoreProgramacaoProvider {
   constructor(public firestore: AngularFirestore) {
   }
   getAll():AngularFirestoreCollection<Programacao> {
-    return this.firestore.collection('programação');
+  return this.firestore.collection('programação');
+    
     }
 }

@@ -26,7 +26,6 @@ export class ProgramacaoEventoPage {
   }
     ionViewDidLoad() {
     this.prog = this.firestoreprogramacaoProvider.getAll().valueChanges();
-    console.log(this.prog);
 
     }
 

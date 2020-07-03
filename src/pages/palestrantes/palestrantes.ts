@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Observable } from 'rxjs';
 import { FirestorePalestrantesProvider } from '../../providers/firestore-palestrantes/firestore-palestrantes';
-import { HomeEventoPage } from '../home-evento/home-evento';
 import { Evento } from '../../models/evento.interface';
 import { Palestrante } from '../../models/palestrante.interface';
 
@@ -21,12 +20,9 @@ export class PalestrantesPage {
 
   
   ionViewDidLoad() {
-    this.idEvento = this.navParams.get('idEvento');
-    console.log(this.idEvento);
-    this.palestrantes = this.firestorepalestrantesProvider.getAll(this.idEvento).valueChanges();
-    console.log(this.idEvento);
+    this.palestrantes = this.firestorepalestrantesProvider.getAll().valueChanges();
   } 
   voltar(){
-    this.navCtrl.push(HomeEventoPage);
+    this.navCtrl.push('HomeEventoPage');
   }
 }
